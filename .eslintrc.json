@@ -26,6 +26,8 @@
     "prettier"
   ],
   "rules": {
+    "react/require-default-props": "off",
+    "react/prop-types": "off",
     "react/button-has-type": "off",
     "react/jsx-props-no-spreading": "off",
     "camelcase": "off",

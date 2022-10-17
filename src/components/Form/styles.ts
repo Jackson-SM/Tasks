@@ -4,7 +4,8 @@ import { styled } from '../../config/stitches.config';
 
 export const FormContainer = styled('div', {
   display: 'flex',
-  justifyContent: 'center',
+  flexDirection: 'column',
+  justifyContent: 'space-around',
 
   height: '400px',
   width: '350px',
@@ -19,13 +20,13 @@ export const FormContainer = styled('div', {
   boxShadow: `0 0 20px 1px ${blackA.blackA6}`,
 });
 
-export const Form = styled('form', {
+export const StyledForm = styled('form', {
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
 });
 
-export const InputField = styled('div', {
+export const StyledInputField = styled('div', {
   display: 'flex',
   flexDirection: 'column',
 
@@ -48,6 +49,6 @@ export const Label = styled('label', {
 
 export const LinkForm = styled('a', {});
 
-export const HeaderForm = styled('div', {});
+export const StyledHeaderForm = styled('div', {});
 
 export const FooterForm = styled('div', {});
