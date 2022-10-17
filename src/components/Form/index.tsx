@@ -1,11 +1,8 @@
 import React from 'react';
-import {
-  FieldValues,
-  useForm,
-  UseFormHandleSubmit,
-  UseFormRegister,
-} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
+import logo from '../../assets/images/vite.svg';
+import { Button } from '../Button';
 import { Text } from '../Text';
 import {
   FormContainer,
@@ -14,6 +11,7 @@ import {
   StyledHeaderForm,
   StyledInputField,
   StyledForm,
+  StyledFooterForm,
 } from './styles';
 
 type InputFieldProps = React.ComponentProps<typeof Input> &
@@ -30,7 +28,13 @@ type HeaderFormCustom = {
   logo?: string;
 };
 
+type FooterFormProps = React.ComponentProps<typeof StyledFooterForm>;
+
 type FormProps = React.ComponentProps<typeof StyledForm>;
+
+export function FooterForm({ children, ...props }: FooterFormProps) {
+  return <StyledFooterForm {...props}>{children}</StyledFooterForm>;
+}
 
 export function HeaderForm({ title, logo, ...props }: HeaderFormProps) {
   return (
@@ -55,7 +59,14 @@ export function InputField({ textLabel, name, ...props }: InputFieldProps) {
 export function Form({ children, ...props }: FormProps) {
   return (
     <FormContainer>
-      <StyledForm {...props}>{children}</StyledForm>
+      <HeaderForm title="Login Form" logo={logo} />
+      <StyledForm {...props}>
+        {children}
+        <Button>Continue </Button>
+      </StyledForm>
+      <FooterForm>
+        <Text size="sm">Not registred?</Text>
+      </FooterForm>
     </FormContainer>
   );
 }

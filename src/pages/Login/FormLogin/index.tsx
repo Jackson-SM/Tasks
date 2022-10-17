@@ -5,7 +5,7 @@ import { Form, InputField } from '../../../components/Form';
 import { Text } from '../../../components/Text';
 
 export function FormLogin() {
-  const { register, handleSubmit } = useForm();
+  const { handleSubmit } = useForm();
 
   return (
     <Form onSubmit={handleSubmit((data) => console.log(data))}>

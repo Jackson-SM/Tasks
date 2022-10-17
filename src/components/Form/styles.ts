@@ -23,7 +23,10 @@ export const FormContainer = styled('div', {
 export const StyledForm = styled('form', {
   display: 'flex',
   flexDirection: 'column',
+
   width: '100%',
+
+  gap: '$md',
 });
 
 export const StyledInputField = styled('div', {
@@ -31,6 +34,8 @@ export const StyledInputField = styled('div', {
   flexDirection: 'column',
 
   background: 'none',
+
+  gap: '$sm',
 });
 
 export const Input = styled('input', {
@@ -49,6 +54,17 @@ export const Label = styled('label', {
 
 export const LinkForm = styled('a', {});
 
-export const StyledHeaderForm = styled('div', {});
+export const StyledHeaderForm = styled('div', {
+  display: 'flex',
+  '& img': {
+    height: '100%',
+  },
+});
+
+export const StyledFooterForm = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+});
 
 export const FooterForm = styled('div', {});
