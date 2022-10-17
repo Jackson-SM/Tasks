@@ -26,6 +26,8 @@
     "prettier"
   ],
   "rules": {
+    "react/jsx-no-constructed-context-values": "off",
+    "@typescript-eslint/ban-types": "off",
     "react/require-default-props": "off",
     "react/prop-types": "off",
     "react/button-has-type": "off",

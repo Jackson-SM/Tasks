@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { lighten, darken } from 'polished';
 
 import { styled } from '../../config/stitches.config';
@@ -13,6 +14,18 @@ export const StyledButton = styled('button', {
   cursor: 'pointer',
 
   transition: 'background ease 100ms',
+
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  '&[disabled]': {
+    backgroundColor: '',
+  },
+
+  [`& svg`]: {
+    justifySelf: 'end',
+  },
 
   '&:hover': {
     background: darken(0.1, `${dark.tertiary}`),

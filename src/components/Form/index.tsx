@@ -1,12 +1,8 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
 
-import logo from '../../assets/images/vite.svg';
-import { Button } from '../Button';
 import { Text } from '../Text';
 import {
-  FormContainer,
-  Input,
+  StyledInput,
   Label,
   StyledHeaderForm,
   StyledInputField,
@@ -14,7 +10,7 @@ import {
   StyledFooterForm,
 } from './styles';
 
-type InputFieldProps = React.ComponentProps<typeof Input> &
+type InputFieldProps = React.ComponentProps<typeof StyledInput> &
   InputFieldPropsCustom;
 type InputFieldPropsCustom = {
   textLabel?: string;
@@ -40,33 +36,22 @@ export function HeaderForm({ title, logo, ...props }: HeaderFormProps) {
   return (
     <StyledHeaderForm {...props}>
       {logo && <img src={logo} alt={title} />}
-      {title && <Text>{title}</Text>}
+      {title && <Text size="lg">{title}</Text>}
     </StyledHeaderForm>
   );
 }
 
-export function InputField({ textLabel, name, ...props }: InputFieldProps) {
-  const { register } = useForm();
-
-  return (
-    <StyledInputField>
-      {textLabel && <Label htmlFor={name}>{textLabel}</Label>}
-      <Input {...props} {...register(name)} />
-    </StyledInputField>
-  );
-}
+export const InputField = React.forwardRef(
+  ({ textLabel, name, ...props }: InputFieldProps, ref) => {
+    return (
+      <StyledInputField>
+        {textLabel && <Label htmlFor={name}>{textLabel}</Label>}
+        <StyledInput {...props} />
+      </StyledInputField>
+    );
+  },
+);
 
 export function Form({ children, ...props }: FormProps) {
-  return (
-    <FormContainer>
-      <HeaderForm title="Login Form" logo={logo} />
-      <StyledForm {...props}>
-        {children}
-        <Button>Continue </Button>
-      </StyledForm>
-      <FooterForm>
-        <Text size="sm">Not registred?</Text>
-      </FooterForm>
-    </FormContainer>
-  );
+  return <StyledForm {...props}>{children}</StyledForm>;
 }
