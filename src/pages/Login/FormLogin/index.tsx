@@ -12,6 +12,7 @@ import {
 } from '../../../components/Form';
 import { Box, FormContainer } from '../../../components/Form/styles';
 import { Text } from '../../../components/Text';
+import { useAuth } from '../../../hooks/useAuth';
 
 export function FormLogin() {
   const { register, handleSubmit, control } = useForm({
@@ -21,10 +22,26 @@ export function FormLogin() {
     },
   });
 
+  const { isLoading, signIn } = useAuth();
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <FormContainer>
       <HeaderForm title="Login Form" logo={logo} />
-      <Form onSubmit={handleSubmit((data) => console.log(data))}>
+      <Text
+        color="tertiary"
+        size="md"
+        as="span"
+        css={{ alignSelf: 'center', padding: '$md', fontFamily: 'Nunito' }}
+      >
+        Loggin your account
+      </Text>
+      <Form
+        onSubmit={handleSubmit((data) => signIn(data.email, data.password))}
+      >
         <Controller
           control={control}
           name="email"
@@ -59,7 +76,7 @@ export function FormLogin() {
             Forgot your password?
           </Text>
         </Box>
-        <Button type="submit" disabled>
+        <Button type="submit">
           Continue <ArrowRightIcon />
         </Button>
       </Form>
