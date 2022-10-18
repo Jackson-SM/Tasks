@@ -61,7 +61,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
     navigate('/');
   };
   const signOut = () => {
-    console.log('hello world logout');
+    setIsLoading(true);
+
+    Api.defaults.headers.authorization = null;
+    localStorage.removeItem('token');
+    setAuthenticate(false);
+    navigate('/login');
+
+    setIsLoading(false);
   };
 
   return (
