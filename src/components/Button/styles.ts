@@ -27,10 +27,6 @@ export const StyledButton = styled('button', {
     justifySelf: 'end',
   },
 
-  '&:hover': {
-    background: darken(0.1, `${dark.tertiary}`),
-  },
-
   defaultVariants: {
     variant: 'tertiary',
   },
@@ -39,12 +35,21 @@ export const StyledButton = styled('button', {
     variant: {
       primary: {
         backgroundColor: '$primary',
+        '&:hover': {
+          background: darken(0.1, `${dark.primary}`),
+        },
       },
       secundary: {
         backgroundColor: '$secundary',
+        '&:hover': {
+          background: darken(0.1, `${dark.secundary}`),
+        },
       },
       tertiary: {
         backgroundColor: '$tertiary',
+        '&:hover': {
+          background: darken(0.1, `${dark.tertiary}`),
+        },
       },
     },
   },
