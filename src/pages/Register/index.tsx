@@ -1,5 +1,12 @@
 import React from 'react';
 
+import { FormRegister } from './RegisterForm';
+import { RegisterContainer } from './styles';
+
 export function Register() {
-  return <div>Register</div>;
+  return (
+    <RegisterContainer>
+      <FormRegister />
+    </RegisterContainer>
+  );
 }
