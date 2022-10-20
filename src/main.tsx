@@ -8,13 +8,11 @@ import { AuthProvider } from './contexts/AuthContext';
 import { AppRoutes } from './Routes';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider>
-          <AppRoutes />
-        </AuthProvider>
-      </QueryClientProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
+    </QueryClientProvider>
+  </BrowserRouter>,
 );

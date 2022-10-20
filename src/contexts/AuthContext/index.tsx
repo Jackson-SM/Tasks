@@ -19,6 +19,7 @@ export interface IUserToken {
 type AuthContextProps = {
   signIn(email: string, password: string): Promise<void>;
   signOut(): void;
+  verifyAuthenticate(): void;
   authenticate: boolean;
   isLoading: boolean;
 };
@@ -34,17 +35,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    setIsLoading(true);
-    const token = localStorage.getItem('token');
-
-    if (token) {
-      Api.defaults.headers.authorization = `Bearer ${JSON.parse(token)}`;
-      setAuthenticate(true);
-    }
-    setIsLoading(false);
-  }, []);
 
   const signIn = async (email: string, password: string): Promise<void> => {
     setIsLoading(true);
@@ -71,8 +61,21 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setIsLoading(false);
   };
 
+  const verifyAuthenticate = async () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      Api.defaults.headers.authorization = `Bearer ${JSON.parse(token)}`;
+    }
+    const { data } = await Api.get('/isauth');
+    if (data.statusCode === 200) setAuthenticate(true);
+
+    console.log(data);
+  };
+
   return (
-    <AuthContext.Provider value={{ authenticate, isLoading, signIn, signOut }}>
+    <AuthContext.Provider
+      value={{ authenticate, isLoading, signIn, signOut, verifyAuthenticate }}
+    >
       {children}
     </AuthContext.Provider>
   );

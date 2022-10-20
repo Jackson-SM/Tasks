@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useQuery } from 'react-query';
 import { Navigate } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/useAuth';
@@ -8,7 +9,13 @@ type PrivateRouteProps = {
 };
 
 export function PrivateRoute({ children }: PrivateRouteProps) {
-  const { authenticate } = useAuth();
+  const { authenticate, verifyAuthenticate } = useAuth();
+
+  const { data, isLoading } = useQuery('tasks', verifyAuthenticate);
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
   return authenticate ? children : <Navigate to="/login" />;
 }

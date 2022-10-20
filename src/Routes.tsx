@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { PrivateRoute } from './middlewares/PrivateRoute';
 import { PublicRoute } from './middlewares/PublicRoute';
+import { Dashboard } from './pages/Dashboard';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
@@ -23,6 +24,16 @@ export function AppRoutes() {
           </PrivateRoute>
         }
       />
+
+      <Route
+        path="/dashboard"
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        }
+      />
+
       <Route
         path="/login"
         element={
@@ -31,6 +42,7 @@ export function AppRoutes() {
           </PublicRoute>
         }
       />
+
       <Route
         path="/register"
         element={
