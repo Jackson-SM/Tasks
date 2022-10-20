@@ -8,7 +8,7 @@ import { HeaderSidebarContainer } from './styles';
 export function HeaderSidebar() {
   return (
     <HeaderSidebarContainer>
-      <Text size="md">Dashboard</Text>
+      <Text className="title">Dashboard</Text>
       <Button text="primary">
         <HamburgerMenuIcon />
       </Button>

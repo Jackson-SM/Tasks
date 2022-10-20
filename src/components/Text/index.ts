@@ -1,4 +1,4 @@
-import { darken } from 'polished';
+import { darken, lighten } from 'polished';
 
 import { styled } from '../../config/stitches.config';
 import dark from '../../styles/themes/dark';
@@ -51,6 +51,11 @@ export const Text = styled('h1', {
         '&:hover': {
           color: darken(0.1, dark.tertiary),
         },
+      },
+    },
+    colorOpacity: {
+      true: {
+        color: darken(0.3, dark.text),
       },
     },
   },
