@@ -17,7 +17,7 @@ export const { styled, globalCss, css, theme } = createStitches({
     },
     fontSizes: {
       sm: '12px',
-      md: '18px',
+      md: '23px',
       lg: '35px',
     },
   },

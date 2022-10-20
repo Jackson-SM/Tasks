@@ -1,5 +1,5 @@
 import { ArrowRightIcon } from '@radix-ui/react-icons';
-import { lighten, darken } from 'polished';
+import { lighten, darken, transparentize } from 'polished';
 
 import { styled } from '../../config/stitches.config';
 import dark from '../../styles/themes/dark';
@@ -27,10 +27,6 @@ export const StyledButton = styled('button', {
     justifySelf: 'end',
   },
 
-  defaultVariants: {
-    variant: 'tertiary',
-  },
-
   variants: {
     variant: {
       primary: {
@@ -49,6 +45,27 @@ export const StyledButton = styled('button', {
         backgroundColor: '$tertiary',
         '&:hover': {
           background: darken(0.1, `${dark.tertiary}`),
+        },
+      },
+    },
+
+    text: {
+      primary: {
+        background: 'transparent',
+        '&:hover': {
+          background: transparentize(0.8, `${dark.primary}`),
+        },
+      },
+      secundary: {
+        background: 'transparent',
+        '&:hover': {
+          background: transparentize(0.8, `${dark.secundary}`),
+        },
+      },
+      tertiary: {
+        background: 'transparent',
+        '&:hover': {
+          background: transparentize(0.8, `${dark.tertiary}`),
         },
       },
     },
