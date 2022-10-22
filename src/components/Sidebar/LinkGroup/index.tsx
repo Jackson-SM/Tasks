@@ -13,8 +13,8 @@ export default function LinkGroup({
   ...props
 }: LinkGroupProps) {
   return (
-    <LinkGroupContainer {...props}>
-      <div>
+    <LinkGroupContainer {...props} className="link_group">
+      <div className="title_container">
         <h1 className="title">{title}</h1>
       </div>
       <div className="childrens">{children}</div>

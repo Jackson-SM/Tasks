@@ -4,8 +4,9 @@ import { styled } from '../../config/stitches.config';
 import dark from '../../styles/themes/dark';
 
 export const SidebarContainer = styled('nav', {
-  width: '200px',
   height: '100%',
+
+  transition: 'width ease-out 300ms',
 
   display: 'flex',
   flexDirection: 'column',

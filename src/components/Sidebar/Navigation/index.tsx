@@ -16,39 +16,31 @@ export function Navigation() {
   return (
     <NavigationContainer>
       <LinkGroup title="User">
-        <LinkCustom to="/dashboard" colorHover="primary">
+        <LinkCustom to="/dashboard" colorHover="primary" text="Dashboard">
           <DashboardIcon />
-          Dashboard
         </LinkCustom>
-        <LinkCustom to="/dashboard/posts" colorHover="primary">
+        <LinkCustom to="/dashboard/posts" colorHover="primary" text="Security">
           <LockClosedIcon />
-          Security
         </LinkCustom>
-        <LinkCustom to="/dashboard" colorHover="primary">
+        <LinkCustom to="/dashboard" colorHover="primary" text="Favourites">
           <StarFilledIcon />
-          Favourites
         </LinkCustom>
-        <LinkCustom to="/dashboard" colorHover="primary">
+        <LinkCustom to="/dashboard" colorHover="primary" text="Charts">
           <BarChartIcon />
-          Charts
         </LinkCustom>
-        <LinkCustom to="/dashboard" colorHover="primary">
+        <LinkCustom to="/dashboard" colorHover="primary" text="Settings">
           <GearIcon />
-          Settings
         </LinkCustom>
       </LinkGroup>
       <LinkGroup title="Main">
-        <LinkCustom to="/dashboard" colorHover="primary">
+        <LinkCustom to="/dashboard" colorHover="primary" text="Dashboard">
           <DashboardIcon />
-          Dashboard
         </LinkCustom>
-        <LinkCustom to="/dashboard/posts" colorHover="primary">
+        <LinkCustom to="/dashboard/posts" colorHover="primary" text="Security">
           <LockClosedIcon />
-          Security
         </LinkCustom>
-        <LinkCustom to="/dashboard" colorHover="primary">
+        <LinkCustom to="/dashboard" colorHover="primary" text="Favourites">
           <StarFilledIcon />
-          Favourites
         </LinkCustom>
       </LinkGroup>
     </NavigationContainer>
